@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  >
+
+  <title>Magic Timer</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="app">
+
+  <!-- PANTALLA INICIAL -->
+  <div id="inicio">
+
+    <!-- ZONA SECRETA -->
+    <div id="zonaSecreta"></div>
+
+    <!-- CONFIGURACIÓN OCULTA -->
+    <div id="configuracion" class="configOculta">
+
+      <input
+        id="horaInput"
+        type="time"
+        step="1"
+        value="12:00:00"
+      >
+
+    </div>
+
+    <!-- START -->
+    <button id="startBtn">
+      START
+    </button>
+
+  </div>
+
+
+  <!-- JUEGO -->
+  <div id="juego" class="oculto">
+
+    <!-- RELOJ -->
+    <div id="reloj">
+      12:00:00
+    </div>
+
+
+    <!-- FLECHA -->
+    <button id="salirBtn">
+      &lt;
+    </button>
+
+
+    <!-- CARTAS SACADAS -->
+    <div id="cartasSacadas"></div>
+
+
+    <!-- MAZO -->
+    <div id="mazo"></div>
+
+
+    <!-- CAJA -->
+    <div id="caja">
+
+      <img
+        src="https://i.ibb.co/hR4nR9Kz/IMG-8441.jpg"
+        alt="Caja Bicycle"
+      >
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
