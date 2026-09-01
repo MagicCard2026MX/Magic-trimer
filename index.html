@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover"
+  >
+
+  <meta
+    name="theme-color"
+    content="#111111"
+  >
+
+  <meta
+    name="apple-mobile-web-app-capable"
+    content="yes"
+  >
+
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black"
+  >
+
+  <meta
+    name="apple-mobile-web-app-title"
+    content="Magic Timer"
+  >
+
+  <title>Magic Timer</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <link
+    rel="manifest"
+    href="manifest.json"
+  >
+
+</head>
+
+
+<body>
+
+  <div id="app">
+
+
+    <!-- =========================================
+         PANTALLA INICIAL
+    ========================================== -->
+
+    <div id="inicio">
+
+      <!-- ZONA SECRETA PARA ABRIR CONFIGURACIÓN -->
+
+      <div id="zonaSecreta"></div>
+
+
+      <!-- CONFIGURACIÓN OCULTA -->
+
+      <div
+        id="configuracion"
+        class="configuracionOculta"
+      >
+
+        <input
+          id="horaInput"
+          type="time"
+          step="1"
+          value="12:00:00"
+          inputmode="numeric"
+        >
+
+        <button id="cerrarConfig">
+          CERRAR
+        </button>
+
+      </div>
+
+
+      <!-- START -->
+
+      <button id="startBtn">
+        START
+      </button>
+
+    </div>
+
+
+    <!-- =========================================
+         JUEGO
+    ========================================== -->
+
+    <div
+      id="juego"
+      class="oculto"
+    >
+
+
+      <!-- RELOJ -->
+
+      <div id="reloj">
+        12:00:00
+      </div>
+
+
+      <!-- FLECHA PARA SALIR -->
+
+      <button id="salirBtn">
+        &lt;
+      </button>
+
+
+      <!-- CARTAS SACADAS -->
+
+      <div id="cartasSacadas"></div>
+
+
+      <!-- MAZO -->
+
+      <div id="mazo"></div>
+
+
+      <!-- CAJA -->
+
+      <div id="caja">
+
+        <img
+          src="https://i.ibb.co/hR4nR9Kz/IMG-8441.jpg"
+          alt="Caja Bicycle"
+          draggable="false"
+        >
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+
+  <!-- JAVASCRIPT -->
+
+  <script src="script.js"></script>
+
+
+  <!-- SERVICE WORKER -->
+
+  <script>
+
+    if ("serviceWorker" in navigator) {
+
+      window.addEventListener(
+        "load",
+        function() {
+
+          navigator.serviceWorker.register(
+            "service-worker.js"
+          );
+
+        }
+      );
+
+    }
+
+  </script>
+
+</body>
+
+</html>
