@@ -1,0 +1,512 @@
+/* =================================
+   DOCUMENTO
+   ================================= */
+
+html,
+body {
+
+  margin: 0;
+
+  padding: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  background: #000;
+
+  touch-action: manipulation;
+
+  -webkit-user-select: none;
+  user-select: none;
+
+}
+
+
+/* =================================
+   ESCENARIO
+   ================================= */
+
+#stage {
+
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  background: #000;
+
+}
+
+
+/* =================================
+   CONTADOR
+   ================================= */
+
+#seconds {
+
+  position: absolute;
+
+  top: env(safe-area-inset-top, 0px);
+
+  left: 8px;
+
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+
+  font-size: 25px;
+
+  font-weight: bold;
+
+  z-index: 20;
+
+}
+
+
+/* =================================
+   CAJA
+   ================================= */
+
+#box {
+
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 190px;
+  height: 270px;
+
+  transform:
+    translate(-50%, -50%);
+
+  background: #9b0000;
+
+  border: 4px solid #fff;
+
+  border-radius: 12px;
+
+  box-sizing: border-box;
+
+  z-index: 10;
+
+  transition:
+    transform 0.5s ease,
+    opacity 0.5s ease;
+
+}
+
+
+/* =================================
+   PARTE SUPERIOR
+   ================================= */
+
+#boxTop {
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  height: 45px;
+
+  background: #c40000;
+
+  border-bottom: 3px solid #fff;
+
+  box-sizing: border-box;
+
+}
+
+
+/* =================================
+   MAZO DENTRO DE LA CAJA
+   ================================= */
+
+#deckInside {
+
+  position: absolute;
+
+  left: 50%;
+  top: 55%;
+
+  width: 125px;
+  height: 178px;
+
+  transform:
+    translate(-50%, -50%);
+
+  background: #174cff;
+
+  border: 3px solid white;
+
+  border-radius: 9px;
+
+  box-sizing: border-box;
+
+}
+
+
+/* =================================
+   MAZO
+   ================================= */
+
+#deck {
+
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 125px;
+  height: 178px;
+
+  transform:
+    translate(-50%, -50%);
+
+  display: none;
+
+  z-index: 5;
+
+}
+
+
+/* =================================
+   CARTAS DEL MAZO
+   ================================= */
+
+.deck-card {
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-image:
+    url("https://i.ibb.co/GvWHtsqK/IMG-8290.jpg");
+
+  background-size: 100% 100%;
+
+  background-position: center;
+
+  background-repeat: no-repeat;
+
+  border: 3px solid white;
+
+  border-radius: 9px;
+
+  box-sizing: border-box;
+
+}
+
+
+/* =================================
+   SUPERPOSICIÓN DEL MAZO
+   ================================= */
+
+.deck-card:nth-child(2) {
+  transform: translateY(-2px);
+}
+
+.deck-card:nth-child(3) {
+  transform: translateY(-4px);
+}
+
+.deck-card:nth-child(4) {
+  transform: translateY(-6px);
+}
+
+
+/* =================================
+   CARTA SUPERIOR
+   ================================= */
+
+#topCard {
+
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 125px;
+  height: 178px;
+
+  transform:
+    translate(-50%, -50%);
+
+  display: none;
+
+  background: white;
+
+  border-radius: 9px;
+
+  overflow: hidden;
+
+  z-index: 8;
+
+}
+
+
+/* =================================
+   IMAGEN
+   ================================= */
+
+#selectedCardImage {
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: fill;
+
+  pointer-events: none;
+
+  user-select: none;
+
+  -webkit-user-select: none;
+
+  -webkit-user-drag: none;
+
+}
+
+
+/* =================================
+   BOTÓN START
+   ================================= */
+
+#startButton {
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 12%;
+
+  transform:
+    translateX(-50%);
+
+  width: 120px;
+  height: 45px;
+
+  border: 2px solid white;
+
+  border-radius: 10px;
+
+  background: #222;
+
+  color: white;
+
+  font-size: 18px;
+
+  font-weight: bold;
+
+  z-index: 30;
+
+  touch-action: manipulation;
+
+}
+
+
+/* =================================
+   BOTÓN SALIR
+   ================================= */
+
+#exitButton {
+
+  position: absolute;
+
+  left: 15px;
+  bottom: 15px;
+
+  width: 45px;
+  height: 45px;
+
+  border: 2px solid white;
+
+  border-radius: 50%;
+
+  background: #222;
+
+  color: white;
+
+  font-size: 25px;
+
+  display: none;
+
+  align-items: center;
+  justify-content: center;
+
+  z-index: 30;
+
+}
+
+
+/* =================================
+   APARTADO SECRETO
+   ================================= */
+
+#cartasSecretas {
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: #111;
+
+  z-index: 100;
+
+  display: none;
+
+  overflow-y: auto;
+
+}
+
+
+/* =================================
+   PANEL
+   ================================= */
+
+.panel-cartas {
+
+  width: 100%;
+
+  min-height: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  box-sizing: border-box;
+
+  padding: 25px 15px 35px;
+
+}
+
+
+/* =================================
+   TÍTULO
+   ================================= */
+
+.titulo-cartas {
+
+  color: white;
+
+  font-size: 24px;
+
+  font-weight: bold;
+
+  margin-bottom: 25px;
+
+  text-align: center;
+
+}
+
+
+/* =================================
+   52 CARTAS
+   ================================= */
+
+#listaCartas {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 70px);
+
+  justify-content: center;
+
+  gap: 12px;
+
+  width: 100%;
+
+  max-width: 330px;
+
+}
+
+
+/* =================================
+   CARTA OPCIÓN
+   ================================= */
+
+.carta-opcion {
+
+  width: 70px;
+  height: 98px;
+
+  background: white;
+
+  border: 2px solid #ccc;
+
+  border-radius: 6px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+
+  cursor: pointer;
+
+  touch-action: manipulation;
+
+}
+
+
+/* =================================
+   IMAGEN CARTA OPCIÓN
+   ================================= */
+
+.carta-opcion img {
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: fill;
+
+  display: block;
+
+  pointer-events: none;
+
+  user-select: none;
+
+  -webkit-user-select: none;
+
+  -webkit-user-drag: none;
+
+}
+
+
+/* =================================
+   AL SELECCIONAR
+   ================================= */
+
+.carta-opcion:active {
+
+  transform:
+    scale(0.92);
+
+}
